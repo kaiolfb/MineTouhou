@@ -1,0 +1,109 @@
+{
+	"variants": {
+		"facing=north,state=off": {
+			"model": "minetouhou:block/pc_off"
+		},
+		"facing=north,state=booting": {
+			"model": "minetouhou:block/pc_booting"
+		},
+		"facing=north,state=awaiting_cd": {
+			"model": "minetouhou:block/pc_awaiting_cd"
+		},
+		"facing=north,state=verifying": {
+			"model": "minetouhou:block/pc_verifying"
+		},
+		"facing=north,state=ready": {
+			"model": "minetouhou:block/pc_ready"
+		},
+		"facing=north,state=running": {
+			"model": "minetouhou:block/pc_running"
+		},
+		"facing=north,state=error": {
+			"model": "minetouhou:block/pc_error"
+		},
+		"facing=east,state=off": {
+			"model": "minetouhou:block/pc_off",
+			"y": 90
+		},
+		"facing=east,state=booting": {
+			"model": "minetouhou:block/pc_booting",
+			"y": 90
+		},
+		"facing=east,state=awaiting_cd": {
+			"model": "minetouhou:block/pc_awaiting_cd",
+			"y": 90
+		},
+		"facing=east,state=verifying": {
+			"model": "minetouhou:block/pc_verifying",
+			"y": 90
+		},
+		"facing=east,state=ready": {
+			"model": "minetouhou:block/pc_ready",
+			"y": 90
+		},
+		"facing=east,state=running": {
+			"model": "minetouhou:block/pc_running",
+			"y": 90
+		},
+		"facing=east,state=error": {
+			"model": "minetouhou:block/pc_error",
+			"y": 90
+		},
+		"facing=south,state=off": {
+			"model": "minetouhou:block/pc_off",
+			"y": 180
+		},
+		"facing=south,state=booting": {
+			"model": "minetouhou:block/pc_booting",
+			"y": 180
+		},
+		"facing=south,state=awaiting_cd": {
+			"model": "minetouhou:block/pc_awaiting_cd",
+			"y": 180
+		},
+		"facing=south,state=verifying": {
+			"model": "minetouhou:block/pc_verifying",
+			"y": 180
+		},
+		"facing=south,state=ready": {
+			"model": "minetouhou:block/pc_ready",
+			"y": 180
+		},
+		"facing=south,state=running": {
+			"model": "minetouhou:block/pc_running",
+			"y": 180
+		},
+		"facing=south,state=error": {
+			"model": "minetouhou:block/pc_error",
+			"y": 180
+		},
+		"facing=west,state=off": {
+			"model": "minetouhou:block/pc_off",
+			"y": 270
+		},
+		"facing=west,state=booting": {
+			"model": "minetouhou:block/pc_booting",
+			"y": 270
+		},
+		"facing=west,state=awaiting_cd": {
+			"model": "minetouhou:block/pc_awaiting_cd",
+			"y": 270
+		},
+		"facing=west,state=verifying": {
+			"model": "minetouhou:block/pc_verifying",
+			"y": 270
+		},
+		"facing=west,state=ready": {
+			"model": "minetouhou:block/pc_ready",
+			"y": 270
+		},
+		"facing=west,state=running": {
+			"model": "minetouhou:block/pc_running",
+			"y": 270
+		},
+		"facing=west,state=error": {
+			"model": "minetouhou:block/pc_error",
+			"y": 270
+		}
+	}
+}

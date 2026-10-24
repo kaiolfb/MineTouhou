@@ -1,0 +1,66 @@
+plugins {
+	id 'net.fabricmc.fabric-loom-remap' version "${loom_version}"
+	id 'maven-publish'
+}
+
+version = project.mod_version
+group = project.maven_group
+
+base {
+	archivesName = project.archives_base_name
+}
+
+loom {
+	// Código só de cliente (renderer, telas, lançador do helper) fica em src/client.
+	splitEnvironmentSourceSets()
+
+	mods {
+		"minetouhou" {
+			sourceSet sourceSets.main
+			sourceSet sourceSets.client
+		}
+	}
+}
+
+dependencies {
+	minecraft "com.mojang:minecraft:${project.minecraft_version}"
+	mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
+	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
+}
+
+processResources {
+	inputs.property "version", project.version
+
+	filesMatching("fabric.mod.json") {
+		expand "version": inputs.properties.version
+	}
+}
+
+tasks.withType(JavaCompile).configureEach {
+	it.options.release = 21
+	it.options.encoding = 'UTF-8'
+}
+
+java {
+	withSourcesJar()
+	sourceCompatibility = JavaVersion.VERSION_21
+	targetCompatibility = JavaVersion.VERSION_21
+}
+
+jar {
+	inputs.property "projectName", project.name
+	from("LICENSE") {
+		rename { "${it}_${project.name}" }
+	}
+}
+
+// Verificações sem dependências externas (somente JDK) para o núcleo e o helper.
+// Rode com: ./gradlew selfCheck   (também é executada por ./gradlew check)
+tasks.register('selfCheck', JavaExec) {
+	group = 'verification'
+	description = 'Executa as verificações automáticas do núcleo e do helper.'
+	classpath = sourceSets.test.runtimeClasspath
+	mainClass = 'com.minetouhou.SelfCheck'
+}
+tasks.named('check') { dependsOn 'selfCheck' }

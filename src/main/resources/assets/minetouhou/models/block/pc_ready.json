@@ -1,0 +1,6 @@
+{
+	"parent": "minetouhou:block/pc_base",
+	"textures": {
+		"screen": "minetouhou:block/screen_ready"
+	}
+}

@@ -1,0 +1,21 @@
+{
+	"schemaVersion": 1,
+	"id": "minetouhou",
+	"version": "${version}",
+	"name": "MineTouhou",
+	"description": "Coloque um PC no Minecraft, insira o CD MineTouhou e jogue o Touhou 6 real; outros jogadores assistem no monitor.",
+	"authors": ["KaioL"],
+	"license": "MIT",
+	"icon": "assets/minetouhou/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": ["com.minetouhou.MineTouhou"],
+		"client": ["com.minetouhou.client.MineTouhouClient"]
+	},
+	"depends": {
+		"fabricloader": ">=0.16.5",
+		"minecraft": "1.21.1",
+		"java": ">=21",
+		"fabric-api": "*"
+	}
+}

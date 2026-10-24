@@ -1,0 +1,24 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"category": "misc",
+	"pattern": [
+		"RIC",
+		"RIC",
+		"RIC"
+	],
+	"key": {
+		"R": {
+			"item": "minecraft:redstone"
+		},
+		"I": {
+			"item": "minecraft:iron_ingot"
+		},
+		"C": {
+			"tag": "minetouhou:concrete"
+		}
+	},
+	"result": {
+		"id": "minetouhou:pc",
+		"count": 1
+	}
+}

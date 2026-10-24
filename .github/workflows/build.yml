@@ -1,0 +1,27 @@
+name: build
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Compilar o mod e rodar as verificações
+        run: ./gradlew build selfCheck --no-daemon --stacktrace
+      - name: Conferir que o JAR não contém arquivos do Touhou 6
+        run: |
+          JAR=$(ls build/libs/minetouhou-*.jar | grep -v sources | head -1)
+          echo "JAR: $JAR"
+          unzip -l "$JAR" | tee /tmp/jar.txt
+          if grep -Ei '\.dat|\.exe|\.ttc|\.wav|\.mid|th06' /tmp/jar.txt | grep -vi 'minetouhou'; then echo "ARQUIVO PROIBIDO NO JAR"; exit 1; fi
+      - uses: actions/upload-artifact@v4
+        with:
+          name: minetouhou-jar
+          path: build/libs/*.jar
